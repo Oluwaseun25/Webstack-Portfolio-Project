@@ -140,7 +140,8 @@ body {
     text-transform: uppercase;
     letter-spacing: 2px;
     color:rgb(65, 68, 71);
-    text-shadow: 2px 2px 0px #fff;
+    text-shadow: none;
+    text-decoration-line: none;
   }
   
   .brand-name span {
@@ -149,6 +150,11 @@ body {
     line-height: 28px;
   }
   
+  .navbar-brand span{
+    color: #0e3c92;
+    text-shadow: none;
+    line-height: 28px;
+  }
 
 #mobile{
     display: none;
@@ -596,11 +602,6 @@ footer a:hover {
     color: #088178;
 }
 
-/* footer .copyright{
-    display: flex;
-    width: 100%;
-    text-align: center;
-} */
 
 footer .copyright{
     display: flex;
@@ -609,22 +610,16 @@ footer .copyright{
     flex-direction: column;
 }
 
-/* footer .copyright i{
-    margin-left: 500px;
-    padding-right: 2px;
-    height: 5px;
-    color: #465b52;
-    font-size: 13px;
-} */
+
 
 footer .copyright i {
     margin-left: -259px;
     padding-right: 2px;
-    padding-bottom:0.1px;
-    height: 0.04px;
+    padding-bottom: 0.1px;
+    height: 0.1px;
     color: #465b52;
     font-size: 13px;
-}
+  }
 
 /*Shop Page*/
 
@@ -1112,12 +1107,21 @@ footer .copyright i {
 
 @media  only screen and  (max-width:799px) {
 
-    body{
-        overflow: inherit;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Spartan', sans-serif;
+        overflow-x: hidden;
     }
 
     .section-p1 {
         padding: 40px 40px;
+    }
+
+    #header {
+        padding: 10px 30px;
+        position: sticky;
     }
 
     
@@ -1291,8 +1295,12 @@ footer .copyright i {
 
 @media only screen and (max-width: 477px) {
 
-    body{
-        overflow: inherit;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Spartan', sans-serif;
+        overflow-x: hidden;
     }
     
     .section-p1 {
@@ -1300,7 +1308,8 @@ footer .copyright i {
     }
 
     #header {
-        padding: 10px 30px;
+    padding: 10px 30px;
+    position: sticky !important;
     }
 
     h1 {
@@ -1395,7 +1404,7 @@ footer .copyright i {
         flex-direction: column;
     }
     #about-head img {
-        margin-left: 19px;
+        margin-left: 53px;
         margin-bottom: 20px;
         width: 100vw;
         
@@ -1451,53 +1460,65 @@ footer .copyright i {
         margin: 0 0 8px 0;
         text-align: center;
     }
-    
+
 
 }
 
-.back-to-top-btn {
-    display: none;
-    bottom: -50px; /* start offscreen at the bottom */
+@media screen and (max-width: 799px) and (min-width: 478px) {
+    #scrollToTopButton {
+      bottom: 30px;
+      right: 30px;
+    }
+  
+    #scrollToTopButton:hover,
+    #scrollToTopButton:active {
+      opacity: 1;
+    }
+  }
+  
+  @media screen and (max-width: 477px) {
+    #scrollToTopButton {
+      bottom: 20px;
+      right: 20px;
+    }
+  
+    #scrollToTopButton:hover,
+    #scrollToTopButton:active {
+      opacity: 1;
+    }
+  }
+  
+
+   #scrollToTopButton {
+    position: fixed;
+    bottom: 20px;
     right: 20px;
-    z-index: 9999;
-    font-size: 24px;
-    background-color: #0077C2; /* blue background color */
-    color: #a31d1d;
+    background:linear-gradient(to right, #ffffff, #42636e);
+    box-shadow: 0 5px 15px rgb(69, 121, 145);
+    color: #0e3c92;
+    border: none;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
-    text-align: center;
-    line-height: 50px;
-    transition: all 0.3s ease-in-out;
-    position: fixed !important;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
   }
   
-  .back-to-top-btn:hover {
-    background-color: #005D9A; /* darker blue on hover */
+  #scrollToTopButton:hover {
+    opacity: 1;
   }
   
-  .back-to-top-btn i {
-    padding-top: 3px;
+  .arrow-icon {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    fill: #0e3c92;
+    vertical-align: middle;
   }
   
-  /* Show the button when the user scrolls down 20px from the top of the document */
-  @media screen and (min-width: 768px) {
-    .back-to-top-btn.show {
-      display: block;
-      bottom: 20px; /* show at bottom of viewport */
-    }
+  .arrow-icon svg {
+    margin-top: -3px; /* adjust vertical alignment as needed */
   }
   
-  /* Animate the button to scroll up when clicked */
-  .back-to-top-btn.scroll-up {
-    animation: scrollUp 0.5s ease-in-out;
-  }
   
-  @keyframes scrollUp {
-    0% {
-      bottom: 20px; /* starting position at bottom of viewport */
-    }
-    100% {
-      bottom: 100%; /* end position at top of page */
-    }
-  }
+  
